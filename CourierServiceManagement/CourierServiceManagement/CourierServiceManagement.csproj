@@ -59,26 +59,49 @@
   <ItemGroup>
     <Compile Include="BusinessLayer\CustomerRepository.cs" />
     <Compile Include="BusinessLayer\EmployeeRepository.cs" />
-    <Compile Include="BusinessLayer\NewIdRepository.cs" />
     <Compile Include="BusinessLayer\ProductRepository.cs" />
+    <Compile Include="CourierServiceDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourierServiceDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CourierServiceDBDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourierServiceDBDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CourierServiceDBDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourierServiceDBDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CourierServiceDBDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourierServiceDBDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CourierServiceDBDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourierServiceDBDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CourierServiceDBDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CourierServiceDBDataSet5.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DatabaseAccessLayer\Connection.cs" />
-    <Compile Include="PresentationLayer\ChangeDetailCustomer.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\ChangeDetailCustomer.Designer.cs">
-      <DependentUpon>ChangeDetailCustomer.cs</DependentUpon>
-    </Compile>
-    <Compile Include="PresentationLayer\ChangeDetailEmp.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PresentationLayer\ChangeDetailEmp.Designer.cs">
-      <DependentUpon>ChangeDetailEmp.cs</DependentUpon>
-    </Compile>
     <Compile Include="PresentationLayer\Customer.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="PresentationLayer\Customer.Designer.cs">
       <DependentUpon>Customer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomerGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\CustomerGrid.Designer.cs">
+      <DependentUpon>CustomerGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Employee.cs">
       <SubType>Form</SubType>
@@ -86,11 +109,11 @@
     <Compile Include="PresentationLayer\Employee.Designer.cs">
       <DependentUpon>Employee.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\EmployeeGridView.cs">
+    <Compile Include="PresentationLayer\EmployeeGrid.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\EmployeeGridView.Designer.cs">
-      <DependentUpon>EmployeeGridView.cs</DependentUpon>
+    <Compile Include="PresentationLayer\EmployeeGrid.Designer.cs">
+      <DependentUpon>EmployeeGrid.cs</DependentUpon>
     </Compile>
     <Compile Include="PresentationLayer\Login.cs">
       <SubType>Form</SubType>
@@ -104,28 +127,37 @@
     <Compile Include="PresentationLayer\Manager.Designer.cs">
       <DependentUpon>Manager.cs</DependentUpon>
     </Compile>
-    <Compile Include="PresentationLayer\OrderGridView.cs">
+    <Compile Include="PresentationLayer\OrderSubmit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PresentationLayer\OrderGridView.Designer.cs">
-      <DependentUpon>OrderGridView.cs</DependentUpon>
+    <Compile Include="PresentationLayer\OrderSubmit.Designer.cs">
+      <DependentUpon>OrderSubmit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\NewEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\NewEmployee.Designer.cs">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PresentationLayer\UpdateCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PresentationLayer\UpdateCustomer.Designer.cs">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="PresentationLayer\ChangeDetailCustomer.resx">
-      <DependentUpon>ChangeDetailCustomer.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\ChangeDetailEmp.resx">
-      <DependentUpon>ChangeDetailEmp.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Customer.resx">
       <DependentUpon>Customer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\CustomerGrid.resx">
+      <DependentUpon>CustomerGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Employee.resx">
       <DependentUpon>Employee.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\EmployeeGridView.resx">
-      <DependentUpon>EmployeeGridView.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\EmployeeGrid.resx">
+      <DependentUpon>EmployeeGrid.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PresentationLayer\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -133,8 +165,14 @@
     <EmbeddedResource Include="PresentationLayer\Manager.resx">
       <DependentUpon>Manager.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PresentationLayer\OrderGridView.resx">
-      <DependentUpon>OrderGridView.cs</DependentUpon>
+    <EmbeddedResource Include="PresentationLayer\NewEmployee.resx">
+      <DependentUpon>NewEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\OrderSubmit.resx">
+      <DependentUpon>OrderSubmit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PresentationLayer\UpdateCustomer.resx">
+      <DependentUpon>UpdateCustomer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -145,6 +183,72 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="CourierServiceDBDataSet.xsc">
+      <DependentUpon>CourierServiceDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourierServiceDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourierServiceDBDataSet.xss">
+      <DependentUpon>CourierServiceDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet1.xsc">
+      <DependentUpon>CourierServiceDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourierServiceDBDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourierServiceDBDataSet1.xss">
+      <DependentUpon>CourierServiceDBDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet2.xsc">
+      <DependentUpon>CourierServiceDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourierServiceDBDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourierServiceDBDataSet2.xss">
+      <DependentUpon>CourierServiceDBDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet3.xsc">
+      <DependentUpon>CourierServiceDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourierServiceDBDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourierServiceDBDataSet3.xss">
+      <DependentUpon>CourierServiceDBDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet4.xsc">
+      <DependentUpon>CourierServiceDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourierServiceDBDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourierServiceDBDataSet4.xss">
+      <DependentUpon>CourierServiceDBDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet5.xsc">
+      <DependentUpon>CourierServiceDBDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="CourierServiceDBDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>CourierServiceDBDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="CourierServiceDBDataSet5.xss">
+      <DependentUpon>CourierServiceDBDataSet5.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

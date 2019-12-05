@@ -28,148 +28,187 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
-            this.RexievedBtn = new MetroFramework.Controls.MetroButton();
-            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.ProductNameLbl = new MetroFramework.Controls.MetroLabel();
-            this.ProductAddressLbl = new MetroFramework.Controls.MetroLabel();
-            this.productIDLbl = new MetroFramework.Controls.MetroLabel();
-            this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
-            this.metroPanel1.SuspendLayout();
+            this.dgvAll = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnSubmitted = new MetroFramework.Controls.MetroButton();
+            this.LblWelcome = new MetroFramework.Controls.MetroLabel();
+            this.LblName = new MetroFramework.Controls.MetroLabel();
+            this.BtnDelivered = new MetroFramework.Controls.MetroButton();
+            this.BtnNwOrder = new MetroFramework.Controls.MetroButton();
+            this.BtnLogout = new MetroFramework.Controls.MetroButton();
+            this.BtnDlt = new MetroFramework.Controls.MetroButton();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).BeginInit();
             this.SuspendLayout();
             // 
-            // metroPanel1
+            // dgvAll
             // 
-            this.metroPanel1.Controls.Add(this.metroButton1);
-            this.metroPanel1.Controls.Add(this.RexievedBtn);
-            this.metroPanel1.Controls.Add(this.metroLabel7);
-            this.metroPanel1.Controls.Add(this.metroLabel6);
-            this.metroPanel1.Controls.Add(this.metroLabel5);
-            this.metroPanel1.Controls.Add(this.ProductNameLbl);
-            this.metroPanel1.Controls.Add(this.ProductAddressLbl);
-            this.metroPanel1.Controls.Add(this.productIDLbl);
-            this.metroPanel1.Controls.Add(this.metroLabel1);
-            this.metroPanel1.HorizontalScrollbarBarColor = true;
-            this.metroPanel1.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.HorizontalScrollbarSize = 10;
-            this.metroPanel1.Location = new System.Drawing.Point(52, 79);
-            this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(927, 559);
-            this.metroPanel1.TabIndex = 1;
-            this.metroPanel1.VerticalScrollbarBarColor = true;
-            this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel1.VerticalScrollbarSize = 10;
+            this.dgvAll.AllowUserToAddRows = false;
+            this.dgvAll.AllowUserToDeleteRows = false;
+            this.dgvAll.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAll.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
+            this.dgvAll.Location = new System.Drawing.Point(23, 116);
+            this.dgvAll.Name = "dgvAll";
+            this.dgvAll.ReadOnly = true;
+            this.dgvAll.Size = new System.Drawing.Size(516, 257);
+            this.dgvAll.TabIndex = 0;
+            this.dgvAll.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvAll_CellDoubleClick);
             // 
-            // RexievedBtn
+            // Column1
             // 
-            this.RexievedBtn.Location = new System.Drawing.Point(458, 125);
-            this.RexievedBtn.Name = "RexievedBtn";
-            this.RexievedBtn.Size = new System.Drawing.Size(102, 54);
-            this.RexievedBtn.TabIndex = 10;
-            this.RexievedBtn.Text = "Recieved";
-            this.RexievedBtn.UseSelectable = true;
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Id";
+            this.Column1.Name = "Column1";
             // 
-            // metroLabel7
+            // Column2
             // 
-            this.metroLabel7.AutoSize = true;
-            this.metroLabel7.Location = new System.Drawing.Point(218, 179);
-            this.metroLabel7.Name = "metroLabel7";
-            this.metroLabel7.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel7.TabIndex = 9;
-            this.metroLabel7.Text = "metroLabel7";
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "productName";
+            this.Column2.Name = "Column2";
             // 
-            // metroLabel6
+            // Column3
             // 
-            this.metroLabel6.AutoSize = true;
-            this.metroLabel6.Location = new System.Drawing.Point(218, 124);
-            this.metroLabel6.Name = "metroLabel6";
-            this.metroLabel6.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel6.TabIndex = 8;
-            this.metroLabel6.Text = "metroLabel6";
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Condition";
+            this.Column3.Name = "Column3";
             // 
-            // metroLabel5
+            // Column4
             // 
-            this.metroLabel5.AutoSize = true;
-            this.metroLabel5.Location = new System.Drawing.Point(218, 70);
-            this.metroLabel5.Name = "metroLabel5";
-            this.metroLabel5.Size = new System.Drawing.Size(83, 19);
-            this.metroLabel5.TabIndex = 7;
-            this.metroLabel5.Text = "metroLabel5";
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Address";
+            this.Column4.Name = "Column4";
             // 
-            // ProductNameLbl
+            // Column5
             // 
-            this.ProductNameLbl.AutoSize = true;
-            this.ProductNameLbl.Location = new System.Drawing.Point(67, 124);
-            this.ProductNameLbl.Name = "ProductNameLbl";
-            this.ProductNameLbl.Size = new System.Drawing.Size(45, 19);
-            this.ProductNameLbl.TabIndex = 6;
-            this.ProductNameLbl.Text = "Name";
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.HeaderText = "RecieverNumber";
+            this.Column5.Name = "Column5";
             // 
-            // ProductAddressLbl
+            // Column6
             // 
-            this.ProductAddressLbl.AutoSize = true;
-            this.ProductAddressLbl.Location = new System.Drawing.Point(67, 179);
-            this.ProductAddressLbl.Name = "ProductAddressLbl";
-            this.ProductAddressLbl.Size = new System.Drawing.Size(109, 19);
-            this.ProductAddressLbl.TabIndex = 5;
-            this.ProductAddressLbl.Text = "Product Address:";
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "SenderNumber";
+            this.Column6.Name = "Column6";
             // 
-            // productIDLbl
+            // BtnSubmitted
             // 
-            this.productIDLbl.AutoSize = true;
-            this.productIDLbl.Location = new System.Drawing.Point(67, 71);
-            this.productIDLbl.Name = "productIDLbl";
-            this.productIDLbl.Size = new System.Drawing.Size(74, 19);
-            this.productIDLbl.TabIndex = 4;
-            this.productIDLbl.Text = "product ID:";
+            this.BtnSubmitted.Location = new System.Drawing.Point(23, 383);
+            this.BtnSubmitted.Name = "BtnSubmitted";
+            this.BtnSubmitted.Size = new System.Drawing.Size(109, 49);
+            this.BtnSubmitted.TabIndex = 1;
+            this.BtnSubmitted.Text = "Submitted";
+            this.BtnSubmitted.UseSelectable = true;
+            this.BtnSubmitted.Click += new System.EventHandler(this.BtnSubmitted_Click);
             // 
-            // metroLabel1
+            // LblWelcome
             // 
-            this.metroLabel1.AutoSize = true;
-            this.metroLabel1.Location = new System.Drawing.Point(479, 25);
-            this.metroLabel1.Name = "metroLabel1";
-            this.metroLabel1.Size = new System.Drawing.Size(81, 19);
-            this.metroLabel1.TabIndex = 2;
-            this.metroLabel1.Text = "metroLabel1";
+            this.LblWelcome.AutoSize = true;
+            this.LblWelcome.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.LblWelcome.Location = new System.Drawing.Point(118, 60);
+            this.LblWelcome.Name = "LblWelcome";
+            this.LblWelcome.Size = new System.Drawing.Size(55, 25);
+            this.LblWelcome.Style = MetroFramework.MetroColorStyle.Black;
+            this.LblWelcome.TabIndex = 4;
+            this.LblWelcome.Text = "Hello,";
             // 
-            // metroButton1
+            // LblName
             // 
-            this.metroButton1.Location = new System.Drawing.Point(458, 213);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(102, 40);
-            this.metroButton1.TabIndex = 11;
-            this.metroButton1.Text = "Change Info";
-            this.metroButton1.UseSelectable = true;
+            this.LblName.AutoSize = true;
+            this.LblName.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.LblName.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.LblName.Location = new System.Drawing.Point(179, 60);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(59, 25);
+            this.LblName.TabIndex = 5;
+            this.LblName.Text = "name";
+            // 
+            // BtnDelivered
+            // 
+            this.BtnDelivered.Location = new System.Drawing.Point(138, 383);
+            this.BtnDelivered.Name = "BtnDelivered";
+            this.BtnDelivered.Size = new System.Drawing.Size(123, 49);
+            this.BtnDelivered.TabIndex = 7;
+            this.BtnDelivered.Text = "Show Deliverd Percels";
+            this.BtnDelivered.UseSelectable = true;
+            this.BtnDelivered.Click += new System.EventHandler(this.BtnDelivered_Click);
+            // 
+            // BtnNwOrder
+            // 
+            this.BtnNwOrder.Location = new System.Drawing.Point(452, 63);
+            this.BtnNwOrder.Name = "BtnNwOrder";
+            this.BtnNwOrder.Size = new System.Drawing.Size(87, 44);
+            this.BtnNwOrder.TabIndex = 8;
+            this.BtnNwOrder.Text = "New Order";
+            this.BtnNwOrder.UseSelectable = true;
+            this.BtnNwOrder.Click += new System.EventHandler(this.BtnNwOrder_Click);
+            // 
+            // BtnLogout
+            // 
+            this.BtnLogout.Location = new System.Drawing.Point(464, 383);
+            this.BtnLogout.Name = "BtnLogout";
+            this.BtnLogout.Size = new System.Drawing.Size(75, 51);
+            this.BtnLogout.TabIndex = 9;
+            this.BtnLogout.Text = "Log Out";
+            this.BtnLogout.UseSelectable = true;
+            this.BtnLogout.Click += new System.EventHandler(this.BtnLogout_Click);
+            // 
+            // BtnDlt
+            // 
+            this.BtnDlt.Location = new System.Drawing.Point(336, 60);
+            this.BtnDlt.Name = "BtnDlt";
+            this.BtnDlt.Size = new System.Drawing.Size(110, 44);
+            this.BtnDlt.TabIndex = 10;
+            this.BtnDlt.Text = "Delete Submission";
+            this.BtnDlt.UseSelectable = true;
+            this.BtnDlt.Click += new System.EventHandler(this.BtnDlt_Click);
             // 
             // Customer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 652);
-            this.Controls.Add(this.metroPanel1);
+            this.ClientSize = new System.Drawing.Size(562, 457);
+            this.Controls.Add(this.BtnDlt);
+            this.Controls.Add(this.BtnLogout);
+            this.Controls.Add(this.BtnNwOrder);
+            this.Controls.Add(this.BtnDelivered);
+            this.Controls.Add(this.LblName);
+            this.Controls.Add(this.LblWelcome);
+            this.Controls.Add(this.BtnSubmitted);
+            this.Controls.Add(this.dgvAll);
             this.Name = "Customer";
             this.Text = "Customer";
-            this.Load += new System.EventHandler(this.Customer_Load);
-            this.metroPanel1.ResumeLayout(false);
-            this.metroPanel1.PerformLayout();
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Customer_FormClosing);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvAll)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private MetroFramework.Controls.MetroPanel metroPanel1;
-        private MetroFramework.Controls.MetroButton RexievedBtn;
-        private MetroFramework.Controls.MetroLabel metroLabel7;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
-        private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroLabel ProductNameLbl;
-        private MetroFramework.Controls.MetroLabel ProductAddressLbl;
-        private MetroFramework.Controls.MetroLabel productIDLbl;
-        private MetroFramework.Controls.MetroLabel metroLabel1;
-        private MetroFramework.Controls.MetroButton metroButton1;
+        private System.Windows.Forms.DataGridView dgvAll;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private MetroFramework.Controls.MetroButton BtnSubmitted;
+        private MetroFramework.Controls.MetroLabel LblWelcome;
+        private MetroFramework.Controls.MetroLabel LblName;
+        private MetroFramework.Controls.MetroButton BtnDelivered;
+        private MetroFramework.Controls.MetroButton BtnNwOrder;
+        private MetroFramework.Controls.MetroButton BtnLogout;
+        private MetroFramework.Controls.MetroButton BtnDlt;
     }
 }

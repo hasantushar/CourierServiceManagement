@@ -13,8 +13,11 @@ using CourierServiceManagement.BusinessLayer;
 
 namespace CourierServiceManagement
 {
+    public delegate void LoginVisible();
     public partial class Login : MetroFramework.Forms.MetroForm
     {
+
+        static int count = 0;
         private DataSet Ds { get; set; }
         public Login()
         {
@@ -24,18 +27,11 @@ namespace CourierServiceManagement
         private void Form1_Load(object sender, EventArgs e)
         {
             Panel2.Visible = false;
+            LoginPanel.Visible = false;
         }
+        
 
-        private void RBtn1_CheckedChanged(object sender, EventArgs e)
-        {
-            DesignationTxt.Text="Deliveryman";
-        }
-
-        private void RBtn2_CheckedChanged(object sender, EventArgs e)
-        {
-            DesignationTxt.Text = "Customer";
-        }
-
+ 
         private void metroDateTime1_ValueChanged(object sender, EventArgs e)
         {
 
@@ -43,7 +39,10 @@ namespace CourierServiceManagement
 
         private void NewOrderBtn_Click(object sender, EventArgs e)
         {
+            OrderSubmit ordersub = new OrderSubmit(Visibility);
 
+            ordersub.Visible = true;
+            this.Visible = false;
         }
 
         private void NewUserBtn_Click(object sender, EventArgs e)
@@ -56,9 +55,15 @@ namespace CourierServiceManagement
         {
             try
             {
-                NewIdRepository Newtemp = new NewIdRepository();
+                CustomerRepository Newtemp = new CustomerRepository(this.NameTxt.Text, this.AdressTxt.Text, this.PhoneNumberTxt1.Text, PasswordTxt2.Text);
 
-                Newtemp.Insert(this.NameTxt.Text, this.AdressTxt.Text, this.PhoneNumberTxt1.Text, this.DesignationTxt.Text, PasswordTxt2.Text, this.DateTime1.Text);
+                Newtemp.Insert();
+
+                Newtemp.DisplayId(this.NameTxt.Text);
+
+               
+
+                
                 
             }catch(Exception exc) { MessageBox.Show("Error :" + exc); }
 
@@ -68,25 +73,99 @@ namespace CourierServiceManagement
 
         private void LoginBtn_Click(object sender, EventArgs e)
         {
-            try
+           
+            if (UsernameTxt.Text=="Admin" && PasswordTxt.Text=="123")
             {
-                EmployeeRepository Emptemp = new EmployeeRepository();
-                this.Ds = Emptemp.SearchLoginData(this.UsernameTxt.Text, PasswordTxt.Text);
-                if (this.Ds.Tables[0].Rows.Count == 1)
-                {   
-                    MessageBox.Show("Success!");
-                    Employee emp = new Employee();
-                    emp.Visible=true;
-                    this.Visible = false;
-                }
-                else { MessageBox.Show("User Name or Password Error"); }
+                LoginVisible LoginFromVisibility = new LoginVisible(this.Visibility);
+                Manager man = new Manager(LoginFromVisibility);
+                man.Visible = true;
+                this.Visible = false;
+            }
+            else
+            {
+                if (count == 0)
+                {
+                    try
+                    {
+                        EmployeeRepository Emptemp = new EmployeeRepository();
+                        this.Ds = Emptemp.SearchLoginData(this.UsernameTxt.Text, PasswordTxt.Text);
+                        if (this.Ds.Tables[0].Rows.Count == 1)
+                        {
+                            
+                            Employee emp = new Employee(Visibility);
+                            emp.Visible = true;
+                            this.Visible = false;
+                        }
+                        else { MessageBox.Show("User Name or Password Error"); }
 
-            }catch (Exception exc) { MessageBox.Show("Login error : "+exc); }
+                    }
+                    catch (Exception exc) { MessageBox.Show("Login error : " + exc); }
+                }
+                else
+                {
+                    try
+                    {
+                        CustomerRepository custrepo = new CustomerRepository();
+                        this.Ds = custrepo.SearchLoginData(this.UsernameTxt.Text, PasswordTxt.Text);
+                        if (this.Ds.Tables[0].Rows.Count == 1)
+                        {
+                            MessageBox.Show("Success!");
+                            Customer cus = new Customer(UsernameTxt.Text,Visibility);
+                            cus.Visible = true;
+                            this.Visible = false;
+
+                            Customer passCustomer = new Customer(UsernameTxt.Text,Visibility);
+                        }
+                        else { MessageBox.Show("User Name or Password Error"); }
+
+                    }
+                    catch (Exception exc) { MessageBox.Show("Login error : " + exc); }
+                }
+            }
+            
         }
 
-        private void Panel1_Paint(object sender, PaintEventArgs e)
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
         {
+            Application.Exit();
+        }
 
+        private void CustomBtn_Click(object sender, EventArgs e)
+        {
+            LoginPanel.Visible = true;
+            count = 1;
+            LoginPanel0.Visible = false;
+        }
+
+        private void metroButton2_Click(object sender, EventArgs e)
+        {
+            LoginPanel.Visible = true;
+            count = 0;
+            LoginPanel0.Visible = false;
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Panel2.Visible = false;
+            Panel1.Visible = true;
+        }
+
+        private void Visibility()
+        {
+            this.Visible = true;
+            this.UsernameTxt.Text = "";
+            this.PasswordTxt.Text = "";
+            this.NameTxt.Text = "";
+            this.AdressTxt.Text = "";
+            this.PhoneNumberTxt1.Text = "";
+            this.Password.Text = "";
+        }
+
+        private void BtnBck_Click(object sender, EventArgs e)
+        {
+            
+            LoginPanel0.Visible = true;
+            LoginPanel.Visible = false;
         }
     }
 }

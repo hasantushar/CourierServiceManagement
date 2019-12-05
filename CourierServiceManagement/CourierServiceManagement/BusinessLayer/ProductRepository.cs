@@ -20,19 +20,16 @@ namespace CourierServiceManagement.BusinessLayer
         private int Id { get; set; }
         private string Name { get; set; }
         private string Address { get; set; }
-        private string SubmissionDate { get; set; }
-        private string ReceivedDate { get; set; }
+      
         private string Condition { get; set; }
+        private string Recievernumber { get; set; }
+        private string Sendernumber { get; set; }
 
 
-        internal ProductRepository(int id, string name, string address, string submissionDate, string receivedDate, string condition)
+        internal ProductRepository()
+
         {
-            this.Id = id;
-            this.Name = name;
-            this.Address = address;
-            this.SubmissionDate = submissionDate;
-            this.ReceivedDate = receivedDate;
-            this.Condition = condition;
+            this.con = new Connection();
         }
 
         public DataSet Display(string sql = "select * from Product;")
@@ -41,11 +38,52 @@ namespace CourierServiceManagement.BusinessLayer
             return this.Ds;
         }
 
-        public DataSet SearchProduct(string name)
+        public void Deliverproduct(string name)
         {
-            string sql = "select * from Customer where EmpName = '" + name + "';";
-            this.Ds = this.con.ExecuteQuery(sql);
-            return this.Ds;
+            try
+            {
+                string sql = "UPDATE ProductDb SET Condition = 'Delivered' WHERE ProductName = '" + name + "'; ";
+                this.con.ExecuteUpdateQuery(sql);
+                MessageBox.Show("Success.");
+            }
+            catch (Exception exc) { MessageBox.Show("Error: " + exc); }
+        }
+
+        public void Deleteproduct(string name)
+        {
+            try
+            {
+                string sql = "delete from ProductDb WHERE Condition='Pending' and ProductName = '" + name + "'; ";
+                this.con.ExecuteUpdateQuery(sql);
+                
+            }
+            catch (Exception exc) { MessageBox.Show("Error: " + exc); }
+        }
+
+        public void InsertProduct(string name, string address,string recieverNumber ,string sendernumber )
+        {
+            
+           
+                try
+                {
+                    string sql = "select * from Customer where PhoneNumber='" + recieverNumber + "' ";
+                    this.con.ExecuteUpdateQuery(sql);
+                    MessageBox.Show("Reciever ID found.");
+
+                try
+                {
+                    sql = "insert into ProductDb values ('" + name + "','" + "Pending" + "', '" + address + "','" + recieverNumber + "','" + sendernumber + "');";
+                    this.con.ExecuteUpdateQuery(sql);
+                    MessageBox.Show("Insertion Done.");
+                }
+                catch (Exception exc) { MessageBox.Show("Error:" + exc); }
+            } catch
+                    {
+                        MessageBox.Show("Reciever Not Found.Please Check.");
+                    }
+               
+
+            
         }
     }
 }

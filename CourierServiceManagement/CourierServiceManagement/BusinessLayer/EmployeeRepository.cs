@@ -31,16 +31,16 @@ namespace CourierServiceManagement.BusinessLayer
             this.con = new Connection();
         }
 
-        internal EmployeeRepository(int id,string name, string phoneNumber, string joiningDate, int deliveryCount, string address, string position)
+        internal EmployeeRepository(string name, string phoneNumber, string joiningDate, string password, string address)
         {
             this.con = new Connection();
-            this.Id= id;
+            //this.Id= id;
             this.Name = name;
             this.PhoneNumber = phoneNumber;
             this.JoiningDate = joiningDate;
-            this.DeliveryCount = deliveryCount;
+            //this.DeliveryCount = deliveryCount;
             this.Address = address;
-            this.Position = position;
+            //this.Position = position;
         }
 
         internal EmployeeRepository(int id, string name, string phoneNumber, string joiningDate, int deliveryCount,string password, string address, string position)
@@ -66,6 +66,7 @@ namespace CourierServiceManagement.BusinessLayer
         {
             string sql = "select * from Employee1 where EmpName = '" + name + "'  AND Password = '" + password + "';";
             this.Ds = this.con.ExecuteQuery(sql);
+            MessageBox.Show("Success!");
             return this.Ds;
         }
 
@@ -77,57 +78,62 @@ namespace CourierServiceManagement.BusinessLayer
         }
 
 
-        public void Insert()
+        public void Insert(string name, string phone, string joiningDate, string password, string address)
         {
-            string sql = "select * from Employee1 where EmpId ='" + this.Id + "';";
-            this.Ds = this.con.ExecuteQuery(sql);
 
-            if (this.Ds.Tables[0].Rows.Count == 1)
-            {
-                sql = @"update Employee1
-                set EmpName = '" + this.Name + @"',
-                Address = '" + this.Address + @"',
-                JoiningDate = '" + this.JoiningDate + @"',
-                PhoneNumber = '" + this.PhoneNumber + @"',
-                Password = '" + this.Password + @"'
-                Position = '"+this.Position+ @"'
-                where EmpId = '" + this.Id + "';";
+            //string sql = "select * from Employee1 where EmpId ='" + this.Id + "';";
+            //this.Ds = this.con.ExecuteQuery(sql);
 
-                try
-                {
-                    this.con.ExecuteUpdateQuery(sql);
-                    MessageBox.Show("Upgradation Done.");
-                   
-                }
-                catch (Exception exc)
-                {
-                    MessageBox.Show("Error: " + exc.Message);
-                }
-            }
-            else
+            //if (this.Ds.Tables[0].Rows.Count == 1)
+            //{
+            //    sql = @"update Employee1
+            //    set EmpName = '" + this.Name + @"',
+            //    Address = '" + this.Address + @"',
+            //    JoiningDate = '" + this.JoiningDate + @"',
+            //    PhoneNumber = '" + this.PhoneNumber + @"',
+            //    Password = '" + this.Password + @"'
+            //    Position = '"+this.Position+ @"'
+            //    where EmpId = '" + this.Id + "';";
+
+            //    try
+            //    {
+            //        this.con.ExecuteUpdateQuery(sql);
+            //        MessageBox.Show("Upgradation Done.");
+
+            //    }
+            //    catch (Exception exc)
+            //    {
+            //        MessageBox.Show("Error: " + exc.Message);
+            //    }
+            //}
+            //else
+            //{
+            try
             {
-                sql = @"insert into Employee1
-                values ('" + this.Name + "','" + this.PhoneNumber + "', '" + this.JoiningDate + @"'
-                ,'"+this.DeliveryCount+"', '" + this.Password + "','" + this.Address + "', '" + this.Position + "');";
+                string sql = @"insert into Employee1
+                values ('" + name + "','" + phone + "', '" + joiningDate + @"'
+                , '" + password + "','" + address + "', '" + "Deliveryman" + "');";
                 try
                 {
                     this.con.ExecuteUpdateQuery(sql);
                     MessageBox.Show("Insertion Done.");
-                    
+
                 }
                 catch (Exception exc)
                 {
                     MessageBox.Show("Error: " + exc.Message);
                 }
             }
+            catch { MessageBox.Show("Please Fillup All the requirements."); }
+            
 
 
 
         }
 
-        public void DeleteEmployee()
+        public void DeleteEmployee(string id)
         {
-            string sql = "delete from Employee1 where EmpId = '" + this.Id + "';";
+            string sql = "delete from Employee1 where EmpId = '" + id + "';";
             try
             {
                 this.con.ExecuteUpdateQuery(sql);
